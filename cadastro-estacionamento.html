@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle do Estacionamento</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(50deg, rgb(5, 5, 109), rgb(17, 208, 233));
+        }
+        .box{
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 15px;
+            width: 20%;
+        }
+        fieldset{
+            border: 3px solid dodgerblue;
+            border-radius: 15px;
+            text-align: center;
+        }
+        legend{
+            border: 1px solid dodgerblue;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        input{
+            padding: 3px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            border-radius: 2px;
+        }
+        button{
+            background-color: rgb(52, 165, 240);
+            border: none;
+            padding: 5px;
+            width: 100%;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+        }
+        button:hover{
+            background-color:rgb(5, 5, 109);
+            cursor: pointer;
+        }
+        .inputBox{
+            position: relative;
+        }
+        .inputUser{
+            background: none;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+            color: white;
+            font-size: 15px;
+            width: 100%;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        .labelInput{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .inputUser:focus ~ .labelInput,
+        .inputUser:valid ~ .labelInput{
+            top: -20px;
+            font-size: 12px;
+            color: dodgerblue;
+        }
+        #data{
+            border: none;
+            padding: 8px;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="http://localhost/meu_projeto/conectar.php" method="post">
+            <fieldset>
+                <legend><b>Formulário de Cadastro</b></legend>
+                <div class="inputBox">
+                    <label for="horario"><b>Chegada e Saída:</b></label>
+                    <input type="time" id="horarioChegada" name="horario_chegada" class="inputUser" required>
+                    <br><br>
+                    <input type="time" id="horarioSaida" name="horario_saida" class="inputUser" required>
+                    <br><br>
+                </div>
+                <div class="inputBox">
+                    <label for="text" class="labelInput"><b>Nome:</b></label>
+                    <br>
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <br><br>
+                </div> 
+                <div class="inputBox">
+                    <label for="text" class="labelInput"><b>Placa:</b></label>
+                    <br>
+                    <input type="text" name="placa" id="placa" class="inputUser" required>
+                    <br><br>
+                </div>
+                <div class="inputBox">
+                    <label for="numero" class="labelInput"><b>Vaga:</b></label>
+                    <br>
+                    <input type="number" name="vaga" id="vaga" class="inputUser" required>
+                    <br><br>
+                </div>
+                <label for="data"><b>Data de Hoje:</b></label>
+                <br>
+                <input type="date" name="data" id="data" required>
+                <br><br>
+                <button type="submit">Enviar</button>
+                <br><br>
+                <!-- Novo botão para visualizar os registros -->
+                <a href="http://localhost/meu_projeto/arquivos.php"><button type="button">Visualizar Registros</button></a>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
